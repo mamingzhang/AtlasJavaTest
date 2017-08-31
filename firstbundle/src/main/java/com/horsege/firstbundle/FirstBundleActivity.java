@@ -1,9 +1,10 @@
 package com.horsege.firstbundle;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FirstBundleActivity extends AppCompatActivity {
+import com.horsege.middleawaylibrary.BaseActivity;
+
+public class FirstBundleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

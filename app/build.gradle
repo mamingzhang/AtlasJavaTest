@@ -90,6 +90,7 @@ dependencies {
         transitive = true
     }
 
+    compile project(':middleawaylibrary')
     compile project(':activitygroupcompat')
 
     bundleCompile project(':firstbundle')

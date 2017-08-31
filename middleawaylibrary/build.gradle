@@ -1,20 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.taobao.atlas'
-
-group = 'com.horsege.atlastest'
-version = '1.0.0'
-
-atlas {
-    bundleConfig {
-        awbBundle = true
-    }
-
-    buildTypes {
-        debug {
-            baseApFile project.rootProject.file('app/build/outputs/apk/app-debug.ap')
-        }
-    }
-}
 
 android {
     compileSdkVersion 26
@@ -43,8 +27,5 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-
-    providedCompile project(":middleawaylibrary")
 }
