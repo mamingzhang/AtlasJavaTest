@@ -18,6 +18,8 @@ import com.taobao.android.ActivityGroupDelegate;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private ActivityGroupDelegate actGroupCompat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +39,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActivityGroupDelegate actGroupCompat = new ActivityGroupDelegate(this, savedInstanceState);
+        actGroupCompat = new ActivityGroupDelegate(this, savedInstanceState);
 
+        switchToActivity("FirstBundle", "com.horsege.firstbundle.FirstBundleActivity");
+    }
+
+    public void switchToActivity(String key,String activityName){
         Intent intent = new Intent();
-        intent.setClassName(getBaseContext(), "com.horsege.secondbundle.SecondBundleActivity");
-        actGroupCompat.startChildActivity((ViewGroup) findViewById(R.id.content), "FirstBundle", intent);
+        intent.setClassName(getBaseContext(), activityName);
+        actGroupCompat.startChildActivity((ViewGroup) findViewById(R.id.content), key, intent);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -50,14 +62,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+                case R.id.first_tab:
+                    switchToActivity("FirstBundle", "com.horsege.firstbundle.FirstBundleActivity");
+                    break;
+                case R.id.second_tab:
+                    switchToActivity("SecondBundle", "com.horsege.secondbundle.SecondBundleActivity");
+                    break;
             }
             return false;
         }
 
     };
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
-    }
 }
