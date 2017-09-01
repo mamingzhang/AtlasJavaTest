@@ -27,7 +27,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.horsege.atlastjavatest"
-        minSdkVersion 23
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -83,8 +83,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:design:26.+'
 
     compile('com.taobao.android:atlas_core:5.0.7.30@aar') {
         transitive = true
@@ -94,6 +95,7 @@ dependencies {
     compile project(':activitygroupcompat')
 
     bundleCompile project(':firstbundle')
+    bundleCompile project(':secondbundle')
 }
 
 apply plugin: 'maven'

@@ -1,2 +1,2 @@
-include ':activitygroupcompat', ':middleawaylibrary'
+include ':activitygroupcompat', ':middleawaylibrary', ':secondbundle'
 include ':app', ':firstbundle'
