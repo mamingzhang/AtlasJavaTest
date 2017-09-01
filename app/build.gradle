@@ -51,6 +51,7 @@ atlas {
 
     tBuildConfig {
         autoStartBundles = ['com.horsege.firstbundle'] //自启动bundle配置
+        outOfApkBundles = ['remotebundle']
         preLaunch = 'com.horsege.atlastjavatest.AtlastTestPreLauncher'
         classInject false
     }
@@ -96,6 +97,7 @@ dependencies {
 
     bundleCompile project(':firstbundle')
     bundleCompile project(':secondbundle')
+    bundleCompile project(':remotebundle')
 }
 
 apply plugin: 'maven'

@@ -8,10 +8,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.taobao.atlas.runtime.RuntimeVariables;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.horsege.middleawaylibrary.BaseActivity;
 import com.taobao.android.ActivityGroupDelegate;
@@ -53,6 +51,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.loadRemoteBundle:
+                Intent intent = new Intent();
+                intent.setClassName(MainActivity.this, "com.horsege.remotebundle.RemoteBundleActivity");
+                startActivity(intent);
+                break;
+        }
         return false;
     }
 
