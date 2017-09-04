@@ -1,6 +1,7 @@
 package com.horsege.atlastjavatest;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,8 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
+import com.horsege.atlastjavatest.update.Updater;
 import com.horsege.middleawaylibrary.BaseActivity;
 import com.taobao.android.ActivityGroupDelegate;
+import com.taobao.atlas.update.AtlasUpdater;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -56,6 +59,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 Intent intent = new Intent();
                 intent.setClassName(MainActivity.this, "com.horsege.remotebundle.RemoteBundleActivity");
                 startActivity(intent);
+                break;
+            case R.id.updatePatchBundle:
+                new AsyncTask<Void, Void, Void>() {
+
+                    @Override
+                    protected Void doInBackground(Void... voids) {
+                        Updater.update(getBaseContext());
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                    }
+                }.execute();
                 break;
         }
         return false;
