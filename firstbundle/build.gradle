@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.taobao.atlas'
 
-group = 'com.horsege.atlastest'
+group = 'com.horsege.atlastjavatest'
 version = '1.0.0'
 
 atlas {
@@ -47,4 +47,22 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     providedCompile project(":middleawaylibrary")
+}
+
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact "${project.buildDir}/outputs/awb/${project.name}-debug.awb"
+            artifactId "firstbundle"
+        }
+    }
 }

@@ -1,2 +1,6 @@
-include ':activitygroupcompat', ':middleawaylibrary', ':secondbundle', ':remotebundle'
-include ':app', ':firstbundle'
+include ':activitygroupcompat'
+include ':middleawaylibrary'
+include ':secondbundle'
+include ':remotebundle'
+//include ':firstbundle'
+include ':app'
