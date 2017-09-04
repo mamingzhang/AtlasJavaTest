@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        ((BottomNavigationView)findViewById(R.id.bottomNavView)).setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        ((BottomNavigationView) findViewById(R.id.bottomNavView)).setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         switchToActivity("FirstBundle", "com.horsege.firstbundle.FirstBundleActivity");
     }
 
-    public void switchToActivity(String key,String activityName){
+    public void switchToActivity(String key, String activityName) {
         Intent intent = new Intent();
         intent.setClassName(getBaseContext(), activityName);
         actGroupCompat.startChildActivity((ViewGroup) findViewById(R.id.content), key, intent);
@@ -66,6 +66,22 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     @Override
                     protected Void doInBackground(Void... voids) {
                         Updater.update(getBaseContext());
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                    }
+                }.execute();
+                break;
+            //但Bundle调试：../gradlew clean assemblePatchDebug
+            case R.id.dexPatchBundle:
+                new AsyncTask<Void, Void, Void>() {
+
+                    @Override
+                    protected Void doInBackground(Void... voids) {
+                        Updater.dexPatchUpdate(getBaseContext());
                         return null;
                     }
 
