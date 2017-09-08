@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.horsege.atlastjavatest.update.Updater;
 import com.horsege.middleawaylibrary.BaseActivity;
+import com.horsege.middleawaylibrary.PublicService;
 import com.taobao.android.ActivityGroupDelegate;
 import com.taobao.atlas.update.AtlasUpdater;
 
@@ -90,6 +91,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         android.os.Process.killProcess(android.os.Process.myPid());
                     }
                 }.execute();
+                break;
+            case R.id.startPublicService:
+                Intent publicServiceInent = new Intent(this, PublicService.class);
+                startService(publicServiceInent);
                 break;
         }
         return false;

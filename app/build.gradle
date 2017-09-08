@@ -98,8 +98,10 @@ dependencies {
     compile project(':middleawaylibrary')
     compile project(':activitygroupcompat')
 
-    compile 'com.horsege.atlastjavatest:firstbundle:1.0.0@awb'
-//    bundleCompile project(':firstbundle')
+    //compile 'com.horsege.atlastjavatest:firstbundle:1.0.0@awb'
+    bundleCompile project(':publicbundle')
+
+    bundleCompile project(':firstbundle')
     bundleCompile project(':secondbundle')
     bundleCompile project(':remotebundle')
 }

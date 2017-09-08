@@ -1,6 +1,7 @@
 include ':activitygroupcompat'
+include ':publicbundle'
 include ':middleawaylibrary'
 include ':secondbundle'
 include ':remotebundle'
-//include ':firstbundle'
+include ':firstbundle'
 include ':app'

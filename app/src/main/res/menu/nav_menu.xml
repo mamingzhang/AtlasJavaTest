@@ -11,4 +11,10 @@
             android:id="@+id/dexPatchBundle"
             android:title="dexPatch模拟"/>
     </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/startPublicService"
+            android:title="启动服务"/>
+    </group>
 </menu>

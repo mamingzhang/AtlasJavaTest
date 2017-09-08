@@ -4,12 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.horsege.firstbundle.FirstBundleActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:text="FirstBundle"
         android:textColor="@android:color/black"
-        android:text="FirstBundle"/>
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/startPublicService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="StartPublicService"
+        android:textSize="26sp"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
